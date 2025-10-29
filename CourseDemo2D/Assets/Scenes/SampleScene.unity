@@ -401,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 284802000}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.51228964, y: 0.52, z: 0.06319068}
+  m_LocalPosition: {x: -0.51228964, y: -0.37, z: 0.06319068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -478,16 +478,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 284802000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0a21efbc17de4ef98dbdb7ef872123b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f50f092da43f448c9f7b7f6d0eee7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Top: {fileID: 205759695}
-  Bottom: {fileID: 1474391432}
-  Right: {fileID: 1713794342}
   Left: {fileID: 1811335230}
-  moveX: 0
-  moveY: 0
+  Right: {fileID: 1713794342}
   speed: 2
+  moveR: 1
 --- !u!1 &288516109
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +639,7 @@ GameObject:
   - component: {fileID: 593772037}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,7 +1439,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1519,7 +1516,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

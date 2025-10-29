@@ -25,18 +25,5 @@ public class Player : MonoBehaviour
         transform.Translate(Movement * 2f * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("coin"))
-        {
-            Destroy(collision.gameObject);
-        }
-
-        //if的语法：
-        //if(条件）
-        //{
-        //  (满足情况会发生什么事）
-        //}
     
-    }
 }

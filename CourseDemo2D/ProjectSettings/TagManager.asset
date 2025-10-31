@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BeeXPoint
   - BeeYPoint
+  - enemy
   layers:
   - Default
   - TransparentFX

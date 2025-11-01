@@ -13,11 +13,18 @@ public class Player : MonoBehaviour
 
     public bool ishurting;
 
+    //jump
+    public float jumpForce = 10f;    // 跳跃高度
+    private Rigidbody2D rb;          // 引用 Rigidbody2D component
+    private bool isGrounded;        // flag 检测是否玩家在地面，避免空中连跳
+
     void Start()
     {
         ishurting = false;
         healthnum = 3;
         healthtext.text = healthnum.ToString();
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +39,13 @@ public class Player : MonoBehaviour
         Vector2 Movement = new Vector2(moveX, 0);
 
         transform.Translate(Movement * 2f * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +56,10 @@ public class Player : MonoBehaviour
             healthnum -= 1;
             healthtext.text = healthnum.ToString();
         }
+        if (collision.CompareTag("ground"))
+        {
+            isGrounded = true; // Player is on the ground
+        }
 
     }
 
@@ -50,6 +68,10 @@ public class Player : MonoBehaviour
         if(collision.CompareTag("enemy") && ishurting == true)
         {
             ishurting = false;
+        }
+        if (collision.CompareTag("ground"))
+        {
+            isGrounded = false; // Player is no longer grounded
         }
     }
 

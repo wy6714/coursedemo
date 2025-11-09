@@ -7,6 +7,10 @@ TagManager:
   - Note
   - LineArea
   - Trigger
+  - enemy
+  - ground
+  - BeeXPoint
+  - HitLine
   layers:
   - Default
   - TransparentFX

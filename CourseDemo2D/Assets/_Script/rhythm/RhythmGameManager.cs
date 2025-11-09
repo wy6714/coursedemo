@@ -17,7 +17,8 @@ public class RhythmGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        beatInteral = 60f / bpm; //0.5
+        //beatInteral = 60f / bpm; //0.5
+        beatInteral = 10f;
     }
 
     // Update is called once per frame

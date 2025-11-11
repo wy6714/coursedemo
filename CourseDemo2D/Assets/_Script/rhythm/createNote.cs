@@ -20,7 +20,7 @@ public class createNote : MonoBehaviour
         while (true)
         {
             SpawnNote();
-            yield return new WaitForSeconds(1f); // 等待5秒再继续
+            yield return new WaitForSeconds(1f); // 等待1秒再继续
         }
     }
 

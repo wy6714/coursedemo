@@ -104,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         Destroy(bullet, 2f);
     }
 
+   
     public void UpgradeBullet()
     {
         fireRate -= upgradefireRate;

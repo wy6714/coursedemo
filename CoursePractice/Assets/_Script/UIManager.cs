@@ -14,10 +14,13 @@ public class UIManager : MonoBehaviour
     public bool isupgrade1;
     public GameObject circleWeaponButton;
     public bool isupgrade2;
+    public GameObject BuffButton;
+    public bool isupgrade3;
 
     [Header("Upgrade")]
     public float unlockbulletNum = 10;
     public float unlockcircleNum = 3;
+    public float unlockbuffNum = 15;
 
     private void OnEnable()
     {
@@ -40,6 +43,9 @@ public class UIManager : MonoBehaviour
 
         circleWeaponButton.SetActive(false);
         isupgrade2 = false;
+
+        BuffButton.SetActive(false);
+        isupgrade3 = false;
     }
 
     // Update is called once per frame
@@ -61,6 +67,13 @@ public class UIManager : MonoBehaviour
             circleWeaponButton.SetActive(true);
         }
 
+        if(killNum >= unlockbuffNum && !isupgrade3)
+        {
+            bulletButton.SetActive(true);
+            circleWeaponButton.SetActive(true);
+            BuffButton.SetActive(true);
+        }
+
     }
 
     private void killNumAdded(GameObject enemy)
@@ -72,20 +85,56 @@ public class UIManager : MonoBehaviour
     {
         bulletButton.SetActive(false);
         isupgrade1 = true;
+        if (killNum >= unlockcircleNum)
+        {
+            isupgrade2 = true;
+            circleWeaponButton.SetActive(true);
+        }
+        if(killNum >= unlockbuffNum)
+        {
+            isupgrade3 = true;
+            BuffButton.SetActive(false);
+        }
+    }
+
+    public void closeCircleButton()
+    {
+        circleWeaponButton.SetActive(false);
+        isupgrade2 = true;
+       
+        if (killNum >= unlockbuffNum)
+        {
+            isupgrade3 = true;
+        }
+    }
+
+    public void closeBuffButton()
+    {
+        BuffButton.SetActive(false);
+        isupgrade3 = true;
     }
 
     public void closeAllButton()
     {
-        circleWeaponButton.SetActive(false);
         bulletButton.SetActive(false);
         isupgrade1 = true;
+        //circleWeaponButton.SetActive(false);
+        //bulletButton.SetActive(false);
+        //BuffButton.SetActive(false);
+        //isupgrade1 = true;
 
-        if(killNum >= unlockcircleNum)
+        if (killNum >= unlockcircleNum)
         {
             isupgrade2 = true;
+            circleWeaponButton.SetActive(false);
         }
-        
-        
+
+        if(killNum >= unlockbuffNum)
+        {
+            isupgrade3 = true;
+            BuffButton.SetActive(false);
+        }
+
     }
 
 }

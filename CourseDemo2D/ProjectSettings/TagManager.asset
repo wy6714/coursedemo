@@ -11,6 +11,7 @@ TagManager:
   - ground
   - BeeXPoint
   - HitLine
+  - TalkTarget
   layers:
   - Default
   - TransparentFX

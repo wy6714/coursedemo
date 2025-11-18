@@ -21,7 +21,7 @@ public class TalkTarget : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // if collide with talk target, show dialogue
-        if (other.CompareTag("TalkTarget"))
+        if (other.CompareTag("Player"))
         {
             dialogueUI.SetActive(true);
         }

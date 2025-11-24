@@ -7,6 +7,8 @@ public class AnimationPlayer : MonoBehaviour
 {
     public SpriteRenderer sr;
     public float speed = 5f;
+
+    //Ê×ÏÈÕÒµ½Äã
     // Start is called before the first frame update
     void Start()
     {

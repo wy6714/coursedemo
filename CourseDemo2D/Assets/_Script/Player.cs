@@ -6,6 +6,17 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    /*
+    如何添加音效：
+    1. 首先找到拾取东西是写在哪个脚本里的
+    2. 在这个脚本里声明你的audio source
+    3. 然后用 audiosource的名字.play(); 来在合适的时间播放音效
+
+    */
+
+    //声明
+    public AudioSource pickupAudio;
+
     // Start is called before the first frame update
     public Vector2 direction = new Vector2(1, 1);
     public int healthnum;
@@ -72,6 +83,15 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("ground"))
         {
             isGrounded = false; // Player is no longer grounded
+        }
+
+        if (collision.CompareTag("food"))
+        {
+            //当玩家碰到标签为食物的物体。即你的食材：食材消失
+            Destroy(collision.gameObject);
+
+            //播放对应音乐
+            pickupAudio.Play();
         }
     }
 

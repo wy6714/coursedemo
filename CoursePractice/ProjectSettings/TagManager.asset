@@ -42,3 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 1moon
+    uniqueID: 1513685931
+    locked: 0
+  - name: 2building
+    uniqueID: 1157346759
+    locked: 0
+  - name: player
+    uniqueID: 3823304305
+    locked: 0
+  - name: 3plant
+    uniqueID: 1426164891
+    locked: 0

@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    public AudioSource pickupAudio;
+    public string TargetScene;
     // Start is called before the first frame update
     void Start()
     {
-        pickupAudio.Play();
+
     }
 
     // Update is called once per frame
@@ -21,6 +21,6 @@ public class StartButton : MonoBehaviour
 
     public void startButton()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(TargetScene);
     }
 }

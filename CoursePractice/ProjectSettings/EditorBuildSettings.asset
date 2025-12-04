@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: da957f3167eaab44a9832aeec7b287ba
+  - enabled: 1
+    path: Assets/Scenes/ParallaxGame.unity
+    guid: aadfce705dea94ce38a542d517be6dfe
+  - enabled: 1
+    path: Assets/Scenes/ParallaxMenu.unity
+    guid: 36b0a378dd6274b9cbbcd6aed5e9dc59
   m_configObjects: {}

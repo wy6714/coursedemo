@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  emojiAni: {fileID: 1716951024}
+  emojiObj: {fileID: 1716951022}
 --- !u!95 &288922595
 Animator:
   serializedVersion: 5

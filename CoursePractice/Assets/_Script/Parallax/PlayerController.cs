@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,12 +11,21 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     public GameObject emojiObj;
     private Animator emojiAni;
+
+    [Header("health bar")]
+    public float health, maxHealth, width,Height;
+    private RectTransform healthBar;
+    public GameObject healthBarUI;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         //获得emoji 动画需要的组件
         emojiAni = emojiObj.GetComponent<Animator>();
+
+        //给healthbar ui赋值
+        healthBar = healthBarUI.GetComponent<RectTransform>();
+
     }
 
     // Update is called once per frame
@@ -37,6 +47,19 @@ public class PlayerController : MonoBehaviour
             sr.flipX = false;
         }
 
+        //test health bar
+        if (Input.GetKeyUp(KeyCode.H) && health<3)
+        {
+            health += 1;
+            updateHealthBar(health);
+        }
+
+        if (Input.GetKeyUp(KeyCode.L) && health >0)
+        {
+            health -= 1;
+            updateHealthBar(health);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +69,16 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("collide");
             emojiAni.SetTrigger("questionState");
+
         }
     }
+
+    private void updateHealthBar(float targetHealth)
+    {
+        health = targetHealth;
+        float newWidth = (health / maxHealth) * width;
+
+        healthBar.sizeDelta = new Vector2(newWidth, Height);
+    }
+
 }

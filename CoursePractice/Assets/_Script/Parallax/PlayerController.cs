@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     private Animator emojiAni;
 
     [Header("health bar")]
-    public float health, maxHealth, width,Height;
+    public float health;
+    public float maxHealth; 
+    public float width,Height;
     private RectTransform healthBar;
     public GameObject healthBarUI;
     // Start is called before the first frame update

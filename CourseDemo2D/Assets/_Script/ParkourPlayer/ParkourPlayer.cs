@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ParkourPlayer : MonoBehaviour
 {
-    [Header("ÒÆ¶¯ÉèÖÃ")]
-    public float moveSpeed = 20f;     // Ç°½øËÙ¶È
-    public float turnSpeed = 100f;    // ×ªÏòËÙ¶È
+    [Header("ç§»åŠ¨å±æ€§")]
+    public float moveSpeed = 20f;     // å‰è¿›
+    public float turnSpeed = 100f;    //è½¬å‘
 
-    [Header("ÊäÈëÉèÖÃ")]
-    public string verticalAxis;   // ÌîÈë Input Manager ÀïµÄÃû³Æ
+    [Header("Input")]
+    public string verticalAxis;   
     public string horizontalAxis;
 
     private Rigidbody rb;
@@ -17,28 +17,28 @@ public class ParkourPlayer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        // ¶³½áĞı×ª£¬·ÀÖ¹¿¨¶¡³µÏñÇòÒ»ÑùÂÒ¹ö£¬×ªÏòÓÉ´úÂë¿ØÖÆ
+        // å†»ç»“ X å’Œ Z è½´æ—‹è½¬ï¼Œé˜²æ­¢è§’è‰²ç¢°æ’æ—¶å‘ç”Ÿå€¾å€’æˆ–ä¸è§„åˆ™æ—‹è½¬
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
     void Update()
     {
-        // 1. »ñÈ¡ÊäÈë
+        // 1. è·å–è¾“å…¥
         moveInput = Input.GetAxis(verticalAxis);
         steerInput = Input.GetAxis(horizontalAxis);
     }
 
     void FixedUpdate()
     {
-        // 2. ´¦ÀíÇ°½ø/ºóÍË
+        // 2. å¤„ç†å‰è¿›/åé€€
         Vector3 movement = transform.forward * moveInput * moveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
 
-        // 3. ´¦Àí×ªÏò (Ö»ÓĞÔÚÒÆ¶¯Ê±²ÅÄÜ×ªÏò)
+        // 3. å¤„ç†è½¬å‘ (åªæœ‰åœ¨æœ‰ç§»åŠ¨è¾“å…¥æ—¶æ‰è¿›è¡Œè½¬å‘)
         if (Mathf.Abs(moveInput) > 0f)
         {
             float turnAmount = steerInput * turnSpeed * Time.fixedDeltaTime;
-            // Èç¹ûÊÇÔÚµ¹³µ£¬×ªÏò·´Ïò
+            // å€’è½¦æ—¶çš„è½¬å‘æ–¹å‘:å
             if (moveInput < 0) turnAmount = -turnAmount;
 
             Quaternion turnRotation = Quaternion.Euler(0f, turnAmount, 0f);
@@ -46,35 +46,5 @@ public class ParkourPlayer : MonoBehaviour
         }
     }
 
-    /*
-    public float forwardSpeed;
-    public float horizontalSpeed;
-
-    private Rigidbody rb;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        // ×Ô¶¯ÏòÇ°
-        Vector3 velocity = transform.forward * forwardSpeed;
-
-        // ×óÓÒÒÆ¶¯
-        float horizontalInput = Input.GetAxis("Horizontal"); // -1 ~ 1
-        velocity += transform.right * horizontalInput * horizontalSpeed;
-
-        // ±£Áô½ÇÉ«×ÔÉíÔ­±¾µÄ y ·½ÏòËÙ¶È£¨ÀıÈçÖØÁ¦£©
-        velocity.y = rb.velocity.y;
-
-        // ¸ø¸ÕÌåÉèÖÃËÙ¶È
-        rb.velocity = velocity;
-    }
-    */
+   
 }

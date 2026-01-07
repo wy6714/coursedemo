@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 186953929}
   - component: {fileID: 186953930}
   - component: {fileID: 186953931}
+  - component: {fileID: 186953932}
   m_Layer: 0
   m_Name: player2
   m_TagString: Untagged
@@ -441,6 +442,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &186953932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186953928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59657bedccd4bc54a936f208dbb51ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  turnSpeed: 100
+  verticalAxis: Vertical2
+  horizontalAxis: Horizontal2
 --- !u!1001 &310077742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1718,8 +1735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59657bedccd4bc54a936f208dbb51ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
-  horizontalSpeed: 5
+  moveSpeed: 20
+  turnSpeed: 100
+  verticalAxis: Vertical
+  horizontalAxis: Horizontal
 --- !u!1 &1835503677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1749,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1835503678}
   - component: {fileID: 1835503680}
-  - component: {fileID: 1835503679}
   m_Layer: 0
   m_Name: Main Camera 2
   m_TagString: MainCamera
@@ -1753,14 +1771,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 186953929}
   m_LocalEulerAnglesHint: {x: 62.828, y: 0, z: 0}
---- !u!81 &1835503679
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835503677}
-  m_Enabled: 1
 --- !u!20 &1835503680
 Camera:
   m_ObjectHideFlags: 0
@@ -2044,9 +2054,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1352108547}
   - {fileID: 1234335275}
-  - {fileID: 1756198905}
   - {fileID: 1358959822}
   - {fileID: 95166414}
   - {fileID: 807401147}
   - {fileID: 402843386}
+  - {fileID: 1756198905}
   - {fileID: 186953929}
